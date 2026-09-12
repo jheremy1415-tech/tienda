@@ -2,31 +2,87 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Tienda Propia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D ESCOBAR - Frames</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; margin: 0; }
-        .producto { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 320px; }
-        .producto img { width: 100%; border-radius: 8px; }
-        .precio { font-size: 26px; font-weight: bold; color: #1a1a1a; margin: 15px 0; }
-        .boton-comprar { background: #0070ba; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; }
-        .boton-comprar:hover { background: #005ea6; }
+        /* Fondo verde oscuro mate idéntico a tu ejemplo */
+        body { font-family: 'Segoe UI', sans-serif; background-color: #4a5d4e; color: white; margin: 0; padding: 40px 20px; }
+        h1 { font-size: 36px; font-weight: bold; margin-bottom: 30px; padding-left: 10px; }
+        
+        /* Cuadrícula organizada para los productos */
+        .catalogo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        
+        /* Tarjeta de cada producto */
+        .producto-card { background: transparent; display: flex; flex-direction: column; text-align: left; position: relative; }
+        
+        /* Contenedor de la foto para que queden al mismísimo nivel */
+        .image-container { width: 100%; height: 180px; display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
+        .image-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        
+        /* Texto de envío estimado y FREE Shipping */
+        .envio-info { font-size: 11px; color: #e2e8f0; margin: 5px 0 2px 0; display: flex; align-items: center; gap: 4px; }
+        .envio-gratis { font-size: 12px; color: #68d391; font-weight: bold; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Detalles del producto */
+        .titulo-prod { font-size: 14px; font-weight: bold; margin: 5px 0 2px 0; }
+        .estrellas { color: #f6ad55; font-size: 12px; margin: 2px 0; }
+        .precio-prod { font-size: 16px; font-weight: bold; margin: 2px 0 5px 0; }
+        
+        /* Botón de compra minimalista integrado */
+        .btn-pagar { background: #ffffff; color: #4a5d4e; border: none; padding: 8px 14px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 8px; width: fit-content; transition: opacity 0.2s; }
+        .btn-pagar:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
 
-    <div class="producto">
-      
-       
-        <div class="precio">$25.00 USD</div>
-        <button class="boton-comprar" onclick="pagar()">Comprar ahora</button>
-    </div>
-    <script>
-        function pagar() {let direccion = "https://buy.stripe.com/test_5kQcN63vX2s5gIj7lZaVa00";
-window["location"]["href"] = direccion;
+    <h1>Frames</h1>
 
+    <div class="catalogo-grid">
+
+        <!-- PRODUCTO 1 -->
+        <div class="producto-card">
+            <div class="image-container">
+                <img src="https://squarespace-cdn.com" alt="Glock Extension">
+            </div>
+            <div class="envio-info">🚚 Estimated delivery dates: Sep 15, 2026 - Sep 21, 2026</div>
+            <div class="envio-gratis">✓ FREE Shipping</div>
+            <div class="titulo-prod">Glock Mag Extension</div>
+            <div class="precio-prod">$45.00</div>
+            <button class="btn-pagar" onclick="irAStripe('https://stripe.com')">Comprar</button>
+        </div>
+
+        <!-- PRODUCTO 2 -->
+        <div class="producto-card">
+            <div class="image-container">
+                <img src="https://squarespace-cdn.com" alt="G19 Frame">
+            </div>
+            <div class="envio-info">🚚 Estimated delivery dates: Sep 15, 2026 - Sep 21, 2026</div>
+            <div class="envio-gratis">✓ FREE Shipping</div>
+            <div class="titulo-prod">g19 Frame (Brown)</div>
+            <div class="estrellas">★★★★★</div>
+            <div class="precio-prod">$45.00</div>
+            <button class="btn-pagar" onclick="irAStripe('https://stripe.com')">Comprar</button>
+        </div>
+
+        <!-- PRODUCTO 3 -->
+        <div class="producto-card">
+            <div class="image-container">
+                <img src="https://squarespace-cdn.com" alt="Tactical Frame">
+            </div>
+            <div class="envio-info">🚚 Estimated delivery dates: Sep 15, 2026 - Sep 21, 2026</div>
+            <div class="envio-gratis">✓ FREE Shipping</div>
+            <div class="titulo-prod">Tactical Frame (Gray)</div>
+            <div class="precio-prod">$45.00</div>
+            <button class="btn-pagar" onclick="irAStripe('https://stripe.com')">Comprar</button>
+        </div>
+
+    </div>
+
+    <script>
+        function irAStripe(enlace) {
+            window["location"]["href"] = enlace;
         }
     </script>
-
 
 </body>
 </html>
