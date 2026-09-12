@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Tienda Propia</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; margin: 0; }
+        .producto { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 320px; }
+        .producto img { width: 100%; border-radius: 8px; }
+        .precio { font-size: 26px; font-weight: bold; color: #1a1a1a; margin: 15px 0; }
+        .boton-comprar { background: #0070ba; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; }
+        .boton-comprar:hover { background: #005ea6; }
+    </style>
+</head>
+<body>
+
+    <div class="producto">
+      
+       
+        <div class="precio">$25.00 USD</div>
+        <button class="boton-comprar" onclick="pagar()">Comprar ahora</button>
+    </div>
+    <script>
+        function pagar() {let direccion = "https://buy.stripe.com/test_5kQcN63vX2s5gIj7lZaVa00";
+window["location"]["href"] = direccion;
+
+        }
+    </script>
+
+
+</body>
+</html>
